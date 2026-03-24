@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tunç türker - thoughts.</title>
+    <meta name="description" content="Notes, thoughts, and writing by Tunc Turker.">
+
+    <!--
+    GLOBAL FONTS
+    To change fonts across the whole site, swap these Google Fonts links.
+    Then update `--font-primary` and `--font-secondary` in styles/main.css
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+    <!--
+        CSS ARCHITECTURE
+        - main.css: Global variables (Colors, Fonts, Spacing) and basic layout tags (body, h1, a).
+        - components.css: Specific styles for the Hero, CV Cards, and Media Grids.
+        - animations.css: Keyframes and classes for things fading/sliding in as you scroll.
+    -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <script src="js/thoughts-data.js" defer></script>
+    <!-- Global Logic (Scroll reveals, tab switching) -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body class="theme-auto">
+
+    <!-- 
+      TOP NAVIGATION BAR 
+      The 'glass-nav' class in main.css gives it the blurred background effect.
+    -->
+    <nav id="navbar" class="glass-nav">
+        <div class="nav-content">
+            <!-- Clicking the logo scrolls smoothly back to the #hero section -->
+            <a href="index.html" class="nav-logo">Özgen Tunç Türker</a>
+            <div class="nav-links">
+                <a href="cv.html">CV.</a>
+                <a href="thoughts.html" class="active">Thoughts.</a>
+                <a href="taste.html">taste.</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="landing-quote-section">
+        <div class="container" style="display: flex; justify-content: center; width: 100%;">
+            <a href="https://www.goodreads.com/quotes/8727-life-isn-t-about-finding-yourself-life-is-about-creating-yourself"
+                style="text-decoration: none; transition: transform 0.3s ease;">
+                <blockquote class="custom-blockquote reveal-text">
+                    “Life isn't about finding yourself. Life is about creating yourself.”
+                    <cite
+                        style="display: block; margin-top: 1rem; font-size: 0.9rem; font-style: normal; color: var(--color-accent); font-weight: 500;">
+                        - George Bernard Shaw</cite>
+                </blockquote>
+            </a>
+        </div>
+    </section>
+
+    <section class="thoughts-section fade-in-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">things i think.</h2>
+                <p class="section-subtitle">short notes and ideas.</p>
+            </div>
+
+            <!-- Text entries container -->
+            <div id="thoughts-feed" class="thoughts-grid">
+                <!-- Data will be injected here by main.js from thoughts-data.js -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Tunç. god bless antigravity.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

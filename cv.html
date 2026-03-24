@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tunç türker - cv.</title>
+    <meta name="description" content="Personal website and intellectual showcase of Tunc Turker.">
+
+    <!-- 
+      GLOBAL FONTS
+      To change fonts across the whole site, swap these Google Fonts links.
+      Then update `--font-primary` and `--font-secondary` in styles/main.css
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+    <!-- 
+      CSS ARCHITECTURE
+      - main.css: Global variables (Colors, Fonts, Spacing) and basic layout tags (body, h1, a).
+      - components.css: Specific styles for the Hero, CV Cards, and Media Grids.
+      - animations.css: Keyframes and classes for things fading/sliding in as you scroll.
+    -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+
+    <!-- Global Logic (Scroll reveals, tab switching) -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body class="theme-auto">
+
+    <!-- 
+      TOP NAVIGATION BAR 
+      The 'glass-nav' class in main.css gives it the blurred background effect.
+    -->
+    <nav id="navbar" class="glass-nav">
+        <div class="nav-content">
+            <!-- Clicking the logo scrolls smoothly back to the #hero section -->
+            <a href="index.html" class="nav-logo">Özgen Tunç Türker</a>
+            <div class="nav-links">
+                <a href="cv.html" class="active">CV.</a>
+                <a href="thoughts.html">thoughts.</a>
+                <a href="taste.html">taste.</a>
+            </div>
+        </div>
+    </nav>
+    <!-- 
+          =============================================
+          CURRICULUM VITAE SECTION
+          =============================================
+          To add new experiences or degrees, copy an existing `<div class="cv-item">` block
+          and paste it below within the same `.cv-row-group`.
+        -->
+    <section class="landing-quote-section">
+        <div class="container" style="display: flex; justify-content: center; width: 100%;">
+            <a href="https://www.goodreads.com/work/quotes/803936-calculus-made-easy"
+                style="text-decoration: none; transition: transform 0.3s ease;">
+                <blockquote class="custom-blockquote reveal-text">
+                    "What one fool can do, another can."
+                    <cite
+                        style="display: block; margin-top: 1rem; font-size: 0.9rem; font-style: normal; color: var(--color-accent); font-weight: 500;">-
+                        Silvanus Phillips Thompson</cite>
+                </blockquote>
+            </a>
+        </div>
+    </section>
+    <section id="cv" class="cv-section fade-in-section">
+        <div class="container">
+            <div class="section-header">
+
+                <h2 class="section-title">course of life.</h2>
+                <p class="section-subtitle">academic background and some life experiences.</p>
+                <p class="section-instruction">click on the cards to learn more. one can be more important than the
+                    other. choose wisely.</p>
+                <p class="section-instruction">we can also meet on <a
+                        href="https://tr.linkedin.com/in/ozgen-tunc-turker-926239118" target="_blank"
+                        style="text-decoration: underline; color: inherit;">linkedin</a></p>
+            </div>
+
+            <div class="cv-layout">
+                <div class="cv-row-group">
+                    <!-- Flex container inside the heading to share the underline -->
+                    <h3 class="cv-heading" style="display: flex; align-items: center; gap: var(--space-md);">
+                        publications.
+                        <div style="display: flex; gap: 16px; align-items: center; transform: translateY(-1px);">
+                            <!-- ORCID -->
+                            <a href="https://orcid.org/0009-0002-7223-3631" target="_blank" title="ORCID"
+                                class="header-icon-link">
+                                <svg viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor">
+                                    <path
+                                        d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.949-.947.949a.95.95 0 0 1-.949-.949c0-.516.424-.947.949-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.081-2.584 4.081-3.722 0-2.016-1.284-3.722-4.094-3.722h-2.284z" />
+                                </svg>
+                            </a>
+                            <!-- Google Scholar -->
+                            <a href="https://scholar.google.com/citations?user=ZiWp9YgAAAAJ&hl=en" target="_blank"
+                                title="Google Scholar" class="header-icon-link">
+                                <svg viewBox="0 0 24 24" width="22" height="22" xmlns="http://www.w3.org/2000/svg"
+                                    fill="currentColor">
+                                    <path
+                                        d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" />
+                                </svg>
+                            </a>
+                            <!-- INSPIRE HEP (using atomic model SVG) -->
+                            <a href="https://inspirehep.net/authors/2862926" target="_blank" title="INSPIRE HEP"
+                                class="header-icon-link">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    style="transform: translateY(1px);">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)">
+                                    </ellipse>
+                                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)">
+                                    </ellipse>
+                                </svg>
+                            </a>
+                        </div>
+                    </h3>
+                    <style>
+                        .header-icon-link {
+                            color: var(--color-text-muted);
+                            transition: color var(--transition-fast), transform var(--transition-fast);
+                            display: inline-flex;
+                        }
+
+                        .header-icon-link:hover {
+                            color: var(--color-accent);
+                            transform: scale(1.15);
+                        }
+                    </style>
+                    <div class="publication-list">
+                        <a href="https://arxiv.org/abs/2512.01607" target="_blank" class="publication-card">
+                            <div class="pub-left">
+                                <h4 class="pub-title">accurate cosmological emulator for the probability
+                                    distribution function of gravitational lensing of point sources.</h4>
+                                <div class="pub-meta">
+                                    <span class="pub-tag">journal</span>
+                                    <span class="pub-id">arxiv:2512.01607</span>
+                                </div>
+                            </div>
+                            <div class="pub-right">
+                                <span class="pub-year">2026</span>
+                                <svg class="pub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </div>
+                        </a>
+
+                        <a href="https://arxiv.org/abs/2412.20118" target="_blank" class="publication-card">
+                            <div class="pub-left">
+                                <h4 class="pub-title">kinetic coupled tachyon: a dynamical system analysis.</h4>
+                                <div class="pub-meta">
+                                    <span class="pub-tag">journal</span>
+                                    <span class="pub-id">arxiv:2412.20118</span>
+                                </div>
+                            </div>
+                            <div class="pub-right">
+                                <span class="pub-year">2025</span>
+                                <svg class="pub-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+
+                    <h3 class="cv-heading" style="margin-top: var(--space-lg);">education.</h3>
+                    <div class="cv-item">
+                        <div style="display: flex; gap: var(--space-md); align-items: stretch;">
+                            <div
+                                style="flex: 0.5; border-radius: var(--radius-md); overflow: hidden; min-height: 100px; background-color: transparent; display: flex; align-items: center; justify-content: center;">
+
+                                <img src="images/ufes.png" alt="UFES logo" loading="lazy"
+                                    style="max-width: 100%; max-height: 120px; object-fit: contain; opacity: 1; border-radius: var(--radius-md);"></a>
+                            </div>
+                            <div style="flex: 4.5; display: flex; flex-direction: column;">
+                                <div class="cv-header">
+                                    <div class="cv-header-left">
+                                        <h4><a href="https://ppgcosmo.cosmo-ufes.org" target="_blank"
+                                                class="stretched-link">Ph.D. Candidate in Cosmology.</a></h4>
+                                        <p class="cv-org">Federal University of Espírito Santo.</p>
+                                    </div>
+                                    <div class="cv-header-right">
+                                        <span class="cv-date">Sept 2022 — Present</span>
+                                        <a href="https://maps.app.goo.gl/gA8uJ4wbCqbCQe8E8" target="_blank"><span
+                                                class="cv-location"> vitória,
+                                                espírito santo, brasil.</span></a>
+                                    </div>
+                                </div>
+                                <p class="cv-desc">supervisor&nbsp;<a href="https://www.valeriomarra.me/"
+                                        target="_blank">Valerio Marra</a>.</p>
+                                <p class="cv-desc">co-supervisors: Stefano Borgani & Tiago
+                                    Castro.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <div style="display: flex; gap: var(--space-md); align-items: stretch;">
+                            <div style="flex: 4.5; display: flex; flex-direction: column;">
+                                <div class="cv-header">
+                                    <div class="cv-header-left">
+                                        <h4><a href="https://sciences.sorbonne-universite.fr/en/study/degree-seeking/masters/master-fundamental-physics-and-applications"
+                                                target="_blank" class="stretched-link">Master's in Physics.</a></h4>
+                                        <p class="cv-org">Sorbonne University.</p>
+                                    </div>
+                                    <div class="cv-header-right">
+                                        <span class="cv-date">Sept 2019 — Jun 2021</span>
+                                        <a href="https://maps.app.goo.gl/CxChSf7sRFGZwzwaA" target="_blank"><span
+                                                class="cv-location">paris, france.</span></a>
+                                    </div>
+                                </div>
+
+                                <p class="cv-desc">M1: paris physics master (<a href="http://parisphysicsmaster.com"
+                                        target="_blank">PPM</a>) program.</p>
+                                <p class="cv-desc">M2: nuclei, particles, astroparticles and cosmology (<a
+                                        href="https://npac.ijclab.in2p3.fr" target="_blank">NPAC</a>) program.</p>
+                            </div>
+                            <div
+                                style="flex: 0.5; border-radius: var(--radius-md); overflow: hidden; min-height: 100px; background-color: transparent; display: flex; align-items: center; justify-content: center;">
+                                <img src="images/su.png" alt="Sorbonne logo" loading="lazy"
+                                    style="max-width: 100%; max-height: 120px; object-fit: contain; opacity: 1; border-radius: var(--radius-md);"></a>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="cv-item">
+                        <div style="display: flex; gap: var(--space-md); align-items: stretch;">
+                            <div
+                                style="flex: 0.5; border-radius: var(--radius-md); overflow: hidden; min-height: 100px; background-color: transparent; display: flex; align-items: center; justify-content: center;">
+
+                                <img src="images/itu.png" alt="ITU logo" loading="lazy"
+                                    style="max-width: 100%; max-height: 120px; object-fit: contain; opacity: 1; border-radius: var(--radius-md);"></a>
+                            </div>
+                            <div style="flex: 4.5; display: flex; flex-direction: column;">
+                                <div class="cv-header">
+                                    <div class="cv-header-left">
+                                        <h4><a href="https://elk.itu.edu.tr/en" target="_blank" class="stretched-link">
+                                                B.Sc.
+                                                in Electrical Engineering (minor in Physics Engineering).</a></h4>
+                                        <p class="cv-org">Istanbul Technical University.</p>
+                                    </div>
+                                    <div class="cv-header-right">
+                                        <span class="cv-date">Sept 2014 — Jun 2019</span>
+                                        <a href="https://maps.app.goo.gl/3EsRx8roLEoUGmPB6" target="_blank"><span
+                                                class="cv-location">istanbul, türkiye.</span></a>
+                                    </div>
+                                </div>
+                                <p class="cv-desc">Included Erasmus exchange at Sorbonne University.</p>
+                                <p class="cv-desc"> <a href="https://github.com/Turkero/GraduationProject"
+                                        target="_blank">
+                                        graduation project: </a> a study on quantum computation: comparison between
+                                    classical and quantum logic gates with applications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="cv-heading" style="margin-top: var(--space-lg);">experiences.</h3>
+                    <div class="cv-item">
+                        <div style="display: flex; gap: var(--space-md); align-items: stretch;">
+                            <!-- Give the image slightly more room horizontally (1.5) and remove padding so it can fill the space -->
+                            <div
+                                style="flex: 1; border-radius: var(--radius-md); overflow: hidden; min-height: 100px; background-color: transparent; display: flex; align-items: center; justify-content: center;">
+
+                                <!-- Keep max-width 100% but increase max-height so it can grow vertically -->
+                                <a href="https://www.google.com/maps/place/great+canadian+paris/data=!4m2!3m1!1s0x47e671dfc8eaba2f:0x1dacf9ddbf619f93?sa=X&ved=1t:242&hl=en&ictx=111"
+                                    target="_blank" class="stretched-link"><img src="images/canadian.jpeg"
+                                        loading="lazy" alt="Great Canadian Pub photo"
+                                        style="max-width: 100%; max-height: 150px; object-fit: contain; opacity: 1; border-radius: var(--radius-md);"></a>
+                            </div>
+                            <div style="flex: 4; display: flex; flex-direction: column;">
+                                <div class="cv-header">
+                                    <div class="cv-header-left">
+                                        <h4><a href="https://www.google.com/maps/place/great+canadian+paris/data=!4m2!3m1!1s0x47e671dfc8eaba2f:0x1dacf9ddbf619f93?sa=X&ved=1t:242&hl=en&ictx=111"
+                                                target="_blank" class="stretched-link">Waiter.</a></h4>
+                                        <p class="cv-org">Great Canadian Pub.</p>
+                                    </div>
+                                    <div class="cv-header-right">
+                                        <span class="cv-date">May 2022 — Aug 2022</span>
+                                        <span class="cv-location">paris, france.</span>
+                                    </div>
+                                </div>
+                                <p class="cv-desc">worked from 16:00 to 03:00, 6 days a week. &nbsp; &#129397
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <div style="display: flex; gap: var(--space-md); align-items: stretch;">
+                            <div style="flex: 4.4; display: flex; flex-direction: column;">
+                                <div class="cv-header">
+                                    <div class="cv-header-left">
+                                        <h4><a href="https://github.com/Turkero/Reports/blob/main/M2Internship_Defence.pdf"
+                                                target="_blank" class="stretched-link">Intern.</a></h4>
+                                        <p class="cv-org">Strasbourg Astronomical Observatory (GALHECOS).</p>
+                                    </div>
+                                    <div class="cv-header-right">
+                                        <span class="cv-date">Mar 2021 — Jun 2021</span>
+                                        <span class="cv-location">strasbourg, france.</span>
+                                    </div>
+                                </div>
+                                <p class="cv-desc">Tested Modified Newtonian Dynamics (MOND) with SDSS MaNGA
+                                    galaxy
+                                    pairs.
+                                    Modeled rotation curves and external field effects.</p>
+                                <p class="cv-desc">supervisors: Oliver Müller & Benoit Famaey.</p>
+                            </div>
+                            <div
+                                style="flex: 0.6; border-radius: var(--radius-md); overflow: hidden; min-height: 100px; background-color: transparent; display: flex; align-items: center; justify-content: center; ">
+                                <img src="images/galhecos.jpeg" loading="lazy"
+                                    alt="Strasbourg Astronomical Observatory (GALHECOS) logo"
+                                    style="max-width: 100%; max-height: 120px; object-fit: contain; opacity: 1; border-radius: var(--radius-md);">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <div style="display: flex; gap: var(--space-md); align-items: stretch;">
+                            <!-- Give the image slightly more room horizontally (1.5) and remove padding so it can fill the space -->
+                            <div
+                                style="flex: 1; border-radius: var(--radius-md); overflow: hidden; min-height: 100px; background-color: transparent; display: flex; align-items: center; justify-content: center;">
+
+                                <!-- Keep max-width 100% but increase max-height so it can grow vertically -->
+                                <img src="images/syrte.png" alt="Observatory of Paris (SYRTE) logo" loading="lazy"
+                                    style="max-width: 100%; max-height: 150px; object-fit: contain; opacity: 1; border-radius: var(--radius-md);">
+                            </div>
+                            <!-- Reduce text room slightly (3.5) to balance out the 5 total flex units -->
+                            <div style="flex: 4; display: flex; flex-direction: column;">
+                                <div class="cv-header">
+                                    <div class="cv-header-left">
+                                        <h4><a href="https://github.com/Turkero/Reports/blob/main/stage_SYRTE_TUKER.pdf"
+                                                target="_blank" class="stretched-link">Intern.</a></h4>
+                                        <p class="cv-org">Observatory of Paris (SYRTE).</p>
+                                    </div>
+                                    <div class="cv-header-right">
+                                        <span class="cv-date">Jul 2020 — Aug 2020</span>
+                                        <span class="cv-location">paris, france.</span>
+                                    </div>
+                                </div>
+                                <p class="cv-desc">Worked on relative positioning of satellites. Analyzed orbit
+                                    mechanics
+                                    and distance data from RINEX, POE, and sp3 formats using NumPy.</p>
+                                <p class="cv-desc">supervisor: Pacôme Delva.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="cv-item">
+                        <div style="display: flex; gap: var(--space-md); align-items: stretch;">
+                            <div style="flex: 4.4; display: flex; flex-direction: column;">
+                                <div class="cv-header">
+                                    <div class="cv-header-left">
+                                        <h4><a href="https://github.com/Turkero/Reports/blob/main/M1Internship_TURKER.pdf"
+                                                target="_blank" class="stretched-link">Intern.</a></h4>
+                                        <p class="cv-org">Kastler–Brossel Laboratory.</p>
+                                    </div>
+                                    <div class="cv-header-right">
+                                        <span class="cv-date">Apr 2020 — Jul 2020</span>
+                                        <span class="cv-location">paris, france.</span>
+                                    </div>
+                                </div>
+                                <p class="cv-desc">Tailored speckle statistics for non-linear imaging using Blind
+                                    Structured Illumination Microscopy.</p>
+                                <p class="cv-desc">supervisor: Hilton B. de AGUIAR.</p>
+                            </div>
+                            <div
+                                style="flex: 0.6; border-radius: var(--radius-md); overflow: hidden; min-height: 100px; background-color: transparent; display: flex; align-items: center; justify-content: center; ">
+                                <img src="images/LKB.jpeg" alt="Laboratoire Kastler-Brossel logo" loading="lazy"
+                                    style="max-width: 100%; max-height: 100px; object-fit: contain; opacity: 1; border-radius: var(--radius-md);">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <div style="display: flex; gap: var(--space-md); align-items: stretch;">
+                            <div
+                                style="flex: 1; border-radius: var(--radius-md); overflow: hidden; min-height: 100px; background-color: transparent; display: flex; align-items: center; justify-content: center;">
+
+                                <!-- Keep max-width 100% but increase max-height so it can grow vertically -->
+                                <img src="images/enwair.jpeg" alt="Enwair logo" loading="lazy"
+                                    style="max-width: 100%; max-height: 150px; object-fit: contain; opacity: 1; border-radius: var(--radius-md);">
+                            </div>
+                            <div style="flex: 4; display: flex; flex-direction: column;">
+                                <div class="cv-header">
+                                    <div class="cv-header-left">
+                                        <h4><a href="http://www.enwair.com/?lang=en" target="_blank"
+                                                class="stretched-link">Engineer.</a></h4>
+                                        <p class="cv-org">Enwair (a startup company).</p>
+                                    </div>
+                                    <div class="cv-header-right">
+                                        <span class="cv-date">Sept 2018 — Dec 2018</span>
+                                        <span class="cv-location">istanbul, turkey.</span>
+                                    </div>
+                                </div>
+                                <p class="cv-desc">Worked on the design of a motor driver circuit for an induction
+                                    motor.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <h3 class="cv-heading" style="margin-top: var(--space-lg);">teaching experience.</h3>
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <div class="cv-header-left">
+                                <h4>Física 3 - Introdução à Teoria Eletromagnética.</h4>
+                                <p class="cv-org">UFES.</p>
+                            </div>
+                            <div class="cv-header-right">
+                                <span class="cv-date">2025</span>
+                                <span class="cv-location">vitória, espírito santo, brasil.</span>
+                            </div>
+                        </div>
+                        <p class="cv-desc">Conducted exercise sessions for bachelor students in Electromagnetics.</p>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <div class="cv-header-left">
+                                <h4>Introdução à Cosmologia e Gravitação.</h4>
+                                <p class="cv-org">UFES.</p>
+                            </div>
+                            <div class="cv-header-right">
+                                <span class="cv-date">2025</span>
+                                <span class="cv-location">vitória, espírito santo, brasil.</span>
+                            </div>
+                        </div>
+                        <p class="cv-desc">Gave an introductory lecture on general relativity and cosmology, and
+                            introduced the astropy package to do basic cosmological calculations.</p>
+                    </div>
+
+                    <h3 class="cv-heading" style="margin-top: var(--space-lg);">talks.</h3>
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <div class="cv-header-left">
+                                <h4>Presentation of the ACE-lensing emulator project.</h4>
+                                <p class="cv-org">The Institute for Fundamental Physics of the Universe (IFPU).</p>
+                            </div>
+                            <div class="cv-header-right">
+                                <span class="cv-date">Nov 21, 2025</span>
+                                <span class="cv-location">trieste, italy.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <div class="cv-header-left">
+                                <h4>Talk about cosmology and ACE-lensing emulator.</h4>
+                                <p class="cv-org">Boğaziçi University.</p>
+                            </div>
+                            <div class="cv-header-right">
+                                <span class="cv-date">Jan 14, 2026</span>
+                                <span class="cv-location">istanbul, türkiye.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="cv-heading" style="margin-top: var(--space-lg);">grants & mobility.</h3>
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <div class="cv-header-left">
+                                <h4>Fapes Scientific Technical Internship.</h4>
+                                <p class="cv-org">Estágio Técnico Científico.</p>
+                            </div>
+                            <div class="cv-header-right">
+                                <span class="cv-date">2025</span>
+                                <span class="cv-location">vitória, espírito santo, brasil.</span>
+                            </div>
+                        </div>
+                        <p class="cv-desc">3-month research stay at the Trieste Astronomical Observatory (OATs).</p>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <div class="cv-header-left">
+                                <h4>Invited Research Visit at the HECAP Section.</h4>
+                                <p class="cv-org">ICTP.</p>
+                            </div>
+                            <div class="cv-header-right">
+                                <span class="cv-date">2024</span>
+                                <span class="cv-location">trieste, italy.</span>
+                            </div>
+                        </div>
+                        <p class="cv-desc">3-month research stay supported by an ICTP grant.</p>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <div class="cv-header-left">
+                                <h4><a href="https://drive.google.com/file/d/1SYnn8VR8k7b80bTu1bfGKomcriYubOmf/view?usp=sharing"
+                                        target="_blank" class="stretched-link">International Mobility Grant.</a></h4>
+                                <p class="cv-org">Science and Engineering Faculty of Sorbonne University.</p>
+                            </div>
+                            <div class="cv-header-right">
+                                <span class="cv-date">2020</span>
+                                <span class="cv-location">paris, france.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <div class="cv-header-left">
+                                <h4>Erasmus Grant.</h4>
+                            </div>
+                            <div class="cv-header-right">
+                                <span class="cv-date">2017</span>
+                                <span class="cv-location">istanbul, türkiye.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="cv-heading" style="margin-top: var(--space-lg);">skills.</h3>
+
+                    <div style="margin-bottom: var(--space-sm);">
+                        <h4
+                            style="font-family: var(--font-primary); color: var(--color-text); font-size: 1rem; margin-bottom: 8px;">
+                            programming & computing.</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Python (NumPy, SciPy, Pandas, Astropy, Pylians, CAMB).</span>
+                            <span class="skill-tag">C++.</span>
+                            <span class="skill-tag">Mathematica.</span>
+                            <span class="skill-tag">Matlab.</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: var(--space-sm);">
+                        <h4
+                            style="font-family: var(--font-primary); color: var(--color-text); font-size: 1rem; margin-bottom: 8px;">
+                            machine learning.</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">scikit-learn.</span>
+                            <span class="skill-tag">XGBoost.</span>
+                            <span class="skill-tag">PCA.</span>
+                            <span class="skill-tag">MCMC (emcee).</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: var(--space-sm);">
+                        <h4
+                            style="font-family: var(--font-primary); color: var(--color-text); font-size: 1rem; margin-bottom: 8px;">
+                            computing environment.</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">HPC Clusters.</span>
+                            <span class="skill-tag">SLURM.</span>
+                            <span class="skill-tag">Linux/Unix (Bash).</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: var(--space-sm);">
+                        <h4
+                            style="font-family: var(--font-primary); color: var(--color-text); font-size: 1rem; margin-bottom: 8px;">
+                            <a href="https://youtu.be/VWpACOnPwEA?si=2Guq30MjPrZKC5EV&t=109" target="_blank"
+                                style="text-decoration: underline; color: inherit;">languages</a>
+                        </h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">🇹🇷 Turkish (Native).</span>
+                            <span class="skill-tag">🇺🇸 English (IELTS 7).</span>
+                            <span class="skill-tag">🇫🇷 French (B2).</span>
+                            <span class="skill-tag">🇧🇷 Portuguese.</span>
+                        </div>
+                    </div>
+
+                    <h3 class="cv-heading" style="margin-top: var(--space-lg);">projects.</h3>
+                    <div class="cv-item">
+                        <div style="display: flex; gap: var(--space-md); align-items: stretch;">
+                            <div
+                                style="flex: 1; border-radius: var(--radius-md); overflow: hidden; min-height: 100px; background-color: transparent; display: flex; align-items: center; justify-content: center;">
+
+                                <!-- Keep max-width 100% but increase max-height so it can grow vertically -->
+                                <img src="images/iturover.png" alt="ITU Rover logo" loading="lazy"
+                                    style="max-width: 100%; max-height: 150px; object-fit: contain; opacity: 1; border-radius: var(--radius-md);">
+                            </div>
+                            <div style="flex: 4; display: flex; flex-direction: column;">
+                                <div class="cv-header">
+                                    <div class="cv-header-left">
+                                        <h4><a href="https://www.youtube.com/watch?v=4ufeu9dd9vI" target="_blank"
+                                                class="stretched-link">Founder & Team Leader.</a></h4>
+                                        <p class="cv-org">ITU Rover Team.</p>
+                                    </div>
+                                    <div class="cv-header-right">
+                                        <span class="cv-date">Aug 2016 — Aug 2017</span>
+                                        <span class="cv-location">utah, usa.</span>
+                                    </div>
+                                </div>
+                                <p class="cv-desc">Led a 32-student team to design and build a Mars rover prototype
+                                    (1m
+                                    x
+                                    1m x 0.6m, 40kg) with a 6kg robotic arm.
+                                </p>
+                                <p class="cv-desc">Participated in the University Rover Challenge at Mars Desert
+                                    Research
+                                    Station. Placed 13th out of 30 finalists.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <div class="cv-header-left">
+                                <h4>Member & Leader.</h4>
+                                <p class="cv-org">ARIGE (ITU Robotics).</p>
+                            </div>
+                            <div class="cv-header-right">
+                                <span class="cv-date">Jan 2014 — Apr 2018</span>
+                            </div>
+                        </div>
+                        <p class="cv-desc">Participated in 10+ domestic and international robotic competitions
+                            (RobotChallenge 2016, etc.). Designed and manufactured custom chassis, integrated
+                            sensors, motors, and microcontrollers.</p>
+                    </div>
+
+                    <h3 class="cv-heading" style="margin-top: var(--space-lg);">extracurricular activities.</h3>
+                    <div class="cv-item">
+                        <div class="cv-header">
+                            <div class="cv-header-left">
+                                <h4>instructor & organiser.</h4>
+                                <p class="cv-org">arduino, python, numpy courses & science talks.</p>
+                            </div>
+                        </div>
+                        <p class="cv-desc">taught 6-week unofficial technical courses to itü
+                            students,
+                            introducing fundamental programming and hardware concepts.</p>
+                        <p class="cv-desc">organized weekly meetings
+                            discussing various scientific topics, fostering communication and
+                            critical
+                            thinking skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </section>

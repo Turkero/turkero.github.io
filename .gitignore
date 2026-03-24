@@ -1,0 +1,9 @@
+.DS_Store
+.gemini/
+node_modules/
+.vscode/
+*.log
+.env
+scripts/
+drafts/
+ratings.csv

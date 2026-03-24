@@ -1,0 +1,306 @@
+/* 
+ * ============================================================================
+ * MAIN DESIGN SYSTEM & GLOBAL VARIABLES
+ * ============================================================================
+ * This file controls the foundational look of the entire website.
+ * Change the variables below to instantly update colors, fonts, and spacing globally.
+ */
+
+:root {
+    /* 
+     * --- COLOR PALETTE (Light Theme - Default) --- 
+     * Adjust these hex codes to change the overall feel of the light mode.
+     */
+    --color-bg: #f5f5f7;
+    /* Main background color (off-white) */
+    --color-bg-alt: #ffffff;
+    /* Alternative background for cards (pure white) */
+    --color-text: #1d1d1f;
+    /* Main reading text color (very dark gray) */
+    --color-text-muted: #515154;
+    /* Subtitles and less important text */
+    --color-accent: #111111;
+    /* Headings, links, and borders (almost black) */
+    --color-accent-dim: rgba(0, 0, 0, 0.15);
+    /* Subtle lines and borders */
+    --color-link: #0066cc;
+    /* Blue links */
+
+    /* 
+     * --- TYPOGRAPHY OPTIONS --- 
+     * Uncomment the block you want to use and comment out the rest.
+     */
+
+    /* OPTION 1: Classic Editorial (Formal, magazine-like) */
+    /* not good for my name!
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-secondary: 'Playfair Display', Georgia, serif;
+    */
+
+    /* OPTION 2: Modern Hybrid (Serif Titles / Sans Body) */
+    --font-primary: 'Crimson Pro', Georgia, serif;
+    --font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+
+    /* OPTION 3: Neo-Minimalist (Sharp, clean startup/design portfolio) */
+    /* --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-secondary: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif; */
+
+    /* 
+     * --- SPACING SYSTEM --- 
+     * Controls padding and margins between elements. 
+     * Increase these if you want a more "airy", spacious design.
+     */
+    --space-xs: 0.5rem;
+    /* ~8px */
+    --space-sm: 1rem;
+    /* ~16px */
+    --space-md: 2rem;
+    /* ~32px */
+    --space-lg: 4rem;
+    /* ~64px */
+    --space-xl: 8rem;
+    /* ~128px */
+    --space-2xl: 12rem;
+    /* ~192px */
+
+    /* 
+     * --- ESSAY LAYOUT --- 
+     * Adjust this to change how wide the text is across all essays.
+     */
+    --essay-max-width: 820px;
+
+    /* 
+     * --- BORDERS & ANIMATIONS --- 
+     */
+    --radius-sm: 4px;
+    /* Small rounded corners (e.g., buttons) */
+    --radius-md: 8px;
+    /* Medium rounded corners (e.g., cards, grids) */
+    --radius-lg: 16px;
+    /* Large rounded corners */
+    --transition-fast: 0.2s ease;
+    /* Speed for hover effects (colors, borders) */
+    --transition-slow: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    /* Speed for sliding/fading elements */
+}
+
+/* 
+ * ============================================================================
+ * DARK MODE OVERRIDES
+ * ============================================================================
+ * If the user's OS or browser is in Dark Mode, these variables replace the light ones.
+ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Color Palette - Premium Dark Theme */
+        --color-bg: #0a0a0c;
+        /* Deep, almost black background */
+        --color-bg-alt: #121215;
+        /* Slightly lighter black for cards */
+        --color-text: #e0e0e0;
+        /* Light gray text for readability */
+        --color-text-muted: #88888b;
+        /* Darker gray for subtitles */
+        --color-accent: #f5f5f5;
+        /* Off-white for headings/highlights */
+        --color-accent-dim: rgba(255, 255, 255, 0.1);
+        /* Subtle white borders */
+        --color-link: #4da6ff;
+        /* Lighter blue links for dark mode */
+
+        /* Navigation specific dark mode variables */
+        --nav-bg: rgba(10, 10, 12, 0.7);
+        --nav-bg-scrolled: rgba(10, 10, 12, 0.9);
+        --glass-border: rgba(255, 255, 255, 0.05);
+    }
+}
+
+/* Light mode specific Navigation variables */
+@media (prefers-color-scheme: light) {
+    :root {
+        --nav-bg: rgba(245, 245, 247, 0.7);
+        --nav-bg-scrolled: rgba(245, 245, 247, 0.9);
+        --glass-border: rgba(0, 0, 0, 0.05);
+    }
+}
+
+/* 
+ * ============================================================================
+ * GLOBAL HTML & BODY STYLES
+ * ============================================================================
+ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Ensures padding doesn't affect total width/height */
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Enables smooth scrolling when clicking anchor links (#cv, #showcase) */
+}
+
+body.theme-auto {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    /* Paragraphs use this font */
+    line-height: 1.6;
+    /* Spacing between lines of text */
+    text-transform: lowercase;
+    /* Forces all text to be lowercase */
+    -webkit-font-smoothing: antialiased;
+    /* Makes fonts look sharper on Mac */
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    /* Prevents horizontal scrolling */
+}
+
+/* 
+ * --- CORE LAYOUT CONTAINER --- 
+ * This keeps all content centered and sets the maximum width of the website.
+ * Change max-width to make the site wider or narrower globally.
+ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* All headings default to the secondary (serif) font */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-accent);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    /* Removes underlines from links */
+    transition: color var(--transition-fast);
+}
+
+section {
+    padding: var(--space-xl) 0;
+    /* Huge vertical spacing between major sections */
+}
+
+/* The big titles at the top of the CV and Showcase sections */
+.section-title {
+    font-size: 3rem;
+    margin-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-accent-dim);
+    padding-bottom: var(--space-sm);
+}
+
+/* 
+ * ============================================================================
+ * NAVIGATION BAR (GLASSMORPHISM)
+ * ============================================================================
+ */
+.glass-nav {
+    position: fixed;
+    /* Sticks to the top of the screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    /* Creates the "frosted glass" effect underneath the navbar */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    z-index: 1000;
+    /* Ensures navbar stays above all other content */
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    /* Aligns logo left and links right */
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo (Your Name) */
+.nav-logo {
+    font-family: var(--font-primary);
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--color-text-main);
+    transition: opacity var(--transition-fast);
+}
+
+.nav-logo:hover {
+    opacity: 0.8;
+}
+
+/* Navigation Links Container */
+.nav-links {
+    display: flex;
+    gap: var(--space-xs);
+}
+
+/* Navigation Links (CV, Showcase) */
+.nav-links a {
+    font-size: 1.15rem;
+    font-weight: 500;
+    text-transform: lowercase;
+    /* Matching the site's lowercase aesthetic */
+    color: var(--color-text-muted);
+    padding: 12px 24px;
+    border-radius: 28px;
+    transition: all var(--transition-fast) ease;
+}
+
+/* Hover effect for navbar links */
+.nav-links a:hover {
+    color: var(--color-text-main);
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Very subtle glass hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Active Nav State */
+.nav-links a.active {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* 
+ * ============================================================================
+ * FOOTER
+ * ============================================================================
+ */
+footer {
+    padding: var(--space-md) 0;
+    text-align: center;
+    border-top: 1px solid var(--color-accent-dim);
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+}
+
+/* 
+ * ============================================================================
+ * PREMIUM MICRO-INTERACTIONS
+ * ============================================================================
+ * Custom text highlighting color
+ */
+::selection {
+    background-color: var(--color-link);
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background-color: var(--color-link);
+    color: #ffffff;
+}

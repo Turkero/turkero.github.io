@@ -1,0 +1,159 @@
+/* 
+ * ============================================================================
+ * ANIMATIONS & EFFECTS
+ * ============================================================================
+ * This file handles things moving around on the screen, like text fading in 
+ * when the page loads, or sections appearing as you scroll down.
+ */
+
+/* 
+ * --- INITIAL LOAD REVEAL ---
+ * Apply the class 'reveal-text' to anything you want to slide up when the site first opens.
+ * It starts invisible (opacity: 0) and slightly lower down (translateY).
+ */
+.reveal-text {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealUp 1s var(--transition-slow) forwards;
+}
+
+/* 
+ * Delay classes. 
+ * Use these so elements don't all appear at exactly the same time.
+ * E.g., title appears first, paragraph appears slightly later (.delay-1).
+ */
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+/* The actual animation that pushes the element into its final visible place */
+@keyframes revealUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 
+ * --- SCROLL FADE IN ---
+ * Applied to major sections (like #cv or #showcase).
+ * They start invisible...
+ */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+/* 
+ * ...and become visible when JavaScript detects you've scrolled near them.
+ * (See js/main.js IntersectionObserver)
+ */
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* 
+ * --- NAVBAR SCROLL EFFECT ---
+ * When you scroll down, the navbar shrinks slightly and gets a darker background.
+ */
+.glass-nav {
+    transition: background-color 0.3s ease, border-bottom 0.3s ease, padding 0.3s ease;
+}
+
+.glass-nav.scrolled {
+    background: rgba(10, 10, 12, 0.9);
+    padding: var(--space-xs) var(--space-md);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 
+ * --- HOVER SHINE EFFECT ---
+ * A cool light reflection effect that sweeps across images in the Showcase grid.
+ */
+.hover-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Creates a tilted invisible white bar off-screen to the left */
+.hover-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg);
+    transition: none;
+}
+
+/* On hover, rapidly moves the white bar across to the right side */
+.hover-shine:hover::after {
+    animation: shine 0.75s ease;
+}
+
+@keyframes shine {
+    100% {
+        left: 200%;
+    }
+}
+
+/* 
+ * --- ELEMENT FLOATING ---
+ * A gentle vertical bobbing animation 
+ */
+@keyframes slowFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* 
+ * --- BACKGROUND ROTATION ---
+ * Slowly spins the ambient background orb 
+ */
+@keyframes slowRotate {
+    0% {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+/* 
+ * --- SIMPLE FADE IN ---
+ * Used for expanding elements like thought cards
+ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

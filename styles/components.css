@@ -1,0 +1,1278 @@
+/* 
+ * ============================================================================
+ * HERO SECTION
+ * ============================================================================
+ * Controls the top introduction area with the photo and bio.
+ */
+.hero-section {
+    min-height: 100vh;
+    /* Makes the hero take up at least the full screen height */
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 
+ * The main wrapper for hero content.
+ * Adjust 'gap' to change the spacing between the photo and the text.
+ */
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    position: relative;
+    z-index: 2;
+    padding-top: var(--space-xl);
+    /* 
+     * Increase this max-width to make the FOTO and TITLE row longer 
+     */
+    max-width: 1000px;
+}
+
+@media (min-width: 1000px) {
+    .hero-container {
+        padding-top: 0;
+    }
+}
+
+/* 
+ * The top row containing the FOTO and TITLE 
+ */
+.hero-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-lg);
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .hero-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+}
+
+/* 
+ * Text container width in the hero.
+ * Increase max-width if you want sentences to run longer before wrapping.
+ */
+.hero-content {
+    flex: 1;
+    max-width: 1000px;
+    /* Increase this to make the paragraphs below wider */
+}
+
+/* "hey, this is tunç" heading */
+.hero-title-wrapper {
+    flex: 1;
+}
+
+.hero-title {
+    /* 'clamp' makes text scale smoothly across mobile/tablet/desktop */
+    font-family: var(--font-secondary);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    margin-bottom: 0px;
+    letter-spacing: -0.02em;
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows phonetic to drop to next line on tiny screens */
+    align-items: baseline;
+    gap: 12px;
+}
+
+/* Phonetic spelling next to title */
+.phonetic {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--color-text-muted);
+    font-family: var(--font-primary);
+    font-weight: 400;
+}
+
+/* 
+ * Paragraphs in the hero bio.
+ * Change font-size or line-height here to make the bio text larger/smaller.
+ */
+.hero-bio {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+}
+
+.hero-bio p {
+    margin-bottom: var(--space-md);
+}
+
+.hero-bio p:last-child {
+    margin-bottom: 0;
+}
+
+/* 
+ * --- PREMIUM INLINE LINKS --- 
+ * Replaces standard underlines with an animated reveal line
+ */
+.hero-bio a {
+    color: var(--color-link);
+    font-weight: 500;
+    position: relative;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.hero-bio a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--color-accent);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.hero-bio a:hover {
+    color: var(--color-accent);
+}
+
+.hero-bio a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.explore-text {
+    margin-top: var(--space-md);
+    font-style: italic;
+    color: var(--color-text-muted) !important;
+}
+
+/* Custom Blockquote */
+.custom-blockquote {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.8;
+    padding: var(--space-lg) var(--space-xl);
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-accent-dim);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.custom-blockquote:hover {
+    transform: scale(1.02);
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+
+
+.essay-content {
+    font-family: var(--font-primary);
+    /* Classic Serif */
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--color-text-main);
+    letter-spacing: 0.01em;
+}
+
+/* 
+ * --- MUSIC PLAYLIST CARDS --- 
+ */
+.music-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.playlist-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    width: 100%;
+    margin-bottom: var(--space-xl);
+}
+
+@media (max-width: 900px) {
+    .playlist-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.playlist-category-wrapper {
+    text-align: center;
+    margin-top: calc(var(--space-md) * -1);
+    margin-bottom: calc(var(--space-md) * -1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.playlist-category-wrapper:first-child {
+    margin-top: var(--space-sm);
+}
+
+.playlist-category {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    color: var(--color-text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    width: 100%;
+}
+
+.playlist-category::before,
+.playlist-category::after {
+    content: "";
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background-color: var(--color-accent);
+}
+
+.playlist-category-desc {
+    font-family: var(--font-primary);
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.playlist-card {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    margin: -10px;
+}
+
+.playlist-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-accent-dim);
+}
+
+.playlist-embed-wrapper {
+    width: 100%;
+    height: 450px;
+    /* Standard Apple Music playlist height */
+    background: #000;
+}
+
+.playlist-embed-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.playlist-commentary {
+    padding: var(--space-md);
+    border-top: 1px solid var(--glass-border);
+}
+
+.commentary-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+}
+
+.commentary-header h4 {
+    margin: 0;
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    color: var(--color-accent);
+}
+
+.playlist-commentary p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0;
+}
+
+/*
+ * ============================================================================
+ * AVATAR IMAGE (me2.jpeg)
+ * ============================================================================
+ */
+.hero-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    animation: slowFloat 6s ease-in-out infinite;
+    /* Makes the avatar gently bob */
+}
+
+/* Pause the bobbing when hovered so they can see the color effect clearly */
+.hero-image-wrapper:hover {
+    animation-play-state: paused;
+}
+
+.hero-image {
+    width: 150px;
+    height: 150px;
+    aspect-ratio: 1 / 1;
+    /* Keeps it a perfect square */
+    object-fit: cover;
+    /* Prevents the image from squishing */
+    border-radius: 50%;
+    /* Makes the image a perfect circle */
+    border: 3px solid var(--color-accent-dim);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    filter: grayscale(20%);
+    /* Starts slightly black-and-white */
+    transition: filter var(--transition-slow);
+}
+
+.hero-image:hover {
+    filter: grayscale(0%);
+    /* Becomes full color when hovered over */
+}
+
+/* A subtle gradient orb floating in the background */
+.hero-background {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(125, 125, 150, 0.04) 0%, rgba(10, 10, 12, 0) 70%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+    animation: slowRotate 30s linear infinite;
+    /* Slowly spins the gradient orb */
+}
+
+/* 
+ * ============================================================================
+ * SHOWCASE & CV BASE
+ * ============================================================================
+ */
+.showcase-placeholder,
+.cv-placeholder {
+    padding: var(--space-lg);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-accent-dim);
+    border-radius: var(--radius-md);
+    text-align: center;
+    color: var(--color-text-muted);
+}
+
+/* 
+ * --- LANDING QUOTE SECTION --- 
+ * Creates a "Cover Page" feel for the intro quotes on landing pages.
+ */
+.landing-quote-section {
+    min-height: 70vh;
+    /* Reduced height for less whitespace gap */
+    display: flex;
+    align-items: flex-start;
+    /* Place quote higher up the page */
+    justify-content: center;
+    padding-top: var(--space-2xl);
+    /* Consistent top padding */
+    padding-bottom: var(--space-lg);
+}
+
+/* Showcase Typography */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.section-subtitle {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    margin-top: calc(var(--space-sm) * -1);
+}
+
+.section-instruction {
+    color: var(--color-text);
+    opacity: 0.85;
+    font-size: 0.95rem;
+    margin-top: calc(var(--space-xs));
+}
+
+/* 
+ * --- TAB NAVIGATION (Books, Films, etc) ---
+ */
+.showcase-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Allows buttons to wrap on tiny screens */
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid var(--color-accent-dim);
+    color: var(--color-text-muted);
+    padding: 8px 24px;
+    border-radius: 30px;
+    /* Pill shape */
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: var(--font-primary);
+    transition: all var(--transition-fast);
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-color: var(--color-accent);
+}
+
+/* 
+ * ============================================================================
+ * SHOWCASE MEDIA GRIDS
+ * ============================================================================
+ * Controls how the lists (Books, Films) arrange themselves.
+ */
+.grid-container {
+    display: none;
+    /* Hide grids by default */
+    /* 
+     * IMPORTANT: 'minmax(200px, 1fr)' automatically calculates columns. 
+     * If screen is wide, it fits many 200px cards. If small, it shrinks to 1 column. 
+     * Decrease '200px' to fit more cards per row.
+     */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    justify-content: center;
+    gap: var(--space-md);
+    animation: fadeIn 0.4s ease;
+}
+
+.grid-item.layout-landscape {
+    grid-column: 1 / -1;
+    /* Landscape items usually look better spanning the whole width for now */
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.essay-article {
+    max-width: var(--essay-max-width);
+    margin: 0 auto;
+}
+
+.grid-container.active {
+    display: grid;
+    /* Only show the active tab's grid */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 
+ * --- INDIVIDUAL MEDIA CARDS (Grid Items) --- 
+ */
+.grid-item {
+    background: var(--color-bg-alt);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    /* Ensures image doesn't poke out of rounded corners */
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-normal) ease, box-shadow var(--transition-normal) ease, border-color var(--transition-normal) ease;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    /* REQUIRED FOR ABOLUTE POSITIONED OVERLAYS TO WORK INSIDE ITEMS */
+}
+
+.grid-item:hover {
+    transform: translateY(-8px);
+    /* Pop up effect */
+    border-color: rgba(255, 255, 255, 0.15);
+    /* Slight border highlight */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Drop shadow on hover */
+}
+
+.item-visual {
+    width: 100%;
+    background-color: #1a1a1f;
+    /* Placeholder bg color for when images load */
+    background-size: cover;
+    background-position: center;
+}
+
+/* 
+ * Shape / Aspect Ratios for different collections. 
+ * Changing these numbers alters the cropping height.
+ */
+.book-cover {
+    aspect-ratio: 2 / 3;
+}
+
+/* Tall rectangles (Movie Posters) */
+.film-still {
+    aspect-ratio: 2 / 3;
+}
+
+/* Widescreen */
+.album-art {
+    aspect-ratio: 1 / 1;
+}
+
+/* Perfect squares */
+.map-visual {
+    aspect-ratio: 4 / 3;
+}
+
+/* Standard screen rectangle */
+.restaurant-photo {
+    aspect-ratio: 4 / 3;
+}
+
+.item-meta {
+    padding: var(--space-sm);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item-meta h3 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    font-family: var(--font-primary);
+    font-weight: 500;
+}
+
+.item-meta p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+/* Hover Commentary Overlay for Media Cards */
+.item-commentary {
+    position: absolute;
+    bottom: -100%;
+    /* Hidden below */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 31, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--color-text-main);
+    padding: var(--space-lg) var(--space-md);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: bottom var(--transition-normal) ease-in-out;
+    z-index: 10;
+    border-radius: var(--radius-md);
+}
+
+.item-commentary h6 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: var(--space-sm);
+    color: var(--color-accent);
+}
+
+.grid-item:hover .item-commentary {
+    bottom: 0;
+}
+
+/* 
+ * ============================================================================
+ * CV SECTION LAYOUT
+ * ============================================================================
+ */
+.cv-layout {
+    display: flex;
+    flex-direction: column;
+    /* Forces everything into a single vertical column */
+    gap: var(--space-xl);
+    /* Big gap between major sections (Experience vs Education) */
+}
+
+.cv-row-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Section Header (e.g. "Experience", "Education") */
+.cv-heading {
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid var(--color-accent-dim);
+}
+
+/* 
+ * --- INDIVIDUAL CV ITEMS --- 
+ */
+.cv-item {
+    margin-bottom: var(--space-md);
+    background: var(--color-bg-alt);
+    /* Card background */
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    border-left: 2px solid var(--color-accent-dim);
+    /* Left subtle stripe */
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    /* Always slight shadow for flat light-theme */
+    position: relative;
+    /* Required for stretched-link */
+}
+
+/* Interaction when hovering over an experience block */
+.cv-item:hover {
+    border-color: var(--color-accent);
+    /* Left stripe brightens */
+    transform: translateX(4px);
+    /* Pushes right */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    /* Deeper shadow */
+}
+
+.cv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    gap: var(--space-sm);
+}
+
+.cv-header-left {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.cv-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.cv-header-left h4 {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.cv-header-right a {
+    position: relative;
+    z-index: 2;
+    transition: opacity var(--transition-fast);
+}
+
+.cv-header-right a:hover {
+    opacity: 0.8;
+}
+
+.cv-org {
+    font-weight: 500;
+    color: var(--color-accent);
+    font-size: 0.95rem;
+}
+
+.cv-date {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.cv-location {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    opacity: 0.8;
+    margin-top: 2px;
+}
+
+.cv-desc {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.cv-desc a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    font-weight: 500;
+    transition: opacity var(--transition-fast);
+    position: relative;
+    z-index: 2;
+    /* Ensures inline links sit above the stretched link */
+}
+
+.cv-desc a:hover {
+    opacity: 0.8;
+}
+
+/* 
+ * Utility to make a whole card clickable 
+ * Place an <a class="stretched-link"> inside a position:relative container
+ */
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    /* Below nested links, above card background */
+    content: "";
+}
+
+/* Skills Tags */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-accent-dim);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    transition: all var(--transition-fast);
+}
+
+.skill-tag:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-color: var(--color-accent);
+}
+
+/* 
+ * --- CUSTOM TOOLTIP --- 
+ */
+.custom-tooltip {
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dotted var(--color-text-muted);
+}
+
+.custom-tooltip .custom-tooltip-text {
+    visibility: hidden;
+    width: 250px;
+    background-color: rgba(26, 26, 31, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--color-text-main);
+    text-align: center;
+    border-radius: 8px;
+    padding: var(--space-sm) var(--space-md);
+    position: absolute;
+    z-index: 100;
+    bottom: 125%;
+    /* Position above the text */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    font-size: 0.85rem;
+    font-family: var(--font-primary);
+    line-height: 1.4;
+    border: 1px solid var(--color-accent-dim);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    /* Prevent tooltip from interfering with hover */
+}
+
+/* Tooltip arrow */
+.custom-tooltip .custom-tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    /* Bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--color-accent-dim) transparent transparent transparent;
+}
+
+.custom-tooltip:hover .custom-tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* 
+ * --- SHOWCASE MODAL (If needed later) --- 
+ */
+.publication-heading {
+    margin-top: var(--space-xl);
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid var(--color-accent-dim);
+    margin-bottom: var(--space-md);
+}
+
+.publication-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.publication-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-accent-dim);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.publication-card-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.publication-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--color-accent);
+    transform: scaleY(0);
+    transition: transform var(--transition-fast);
+    transform-origin: center;
+}
+
+.publication-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.publication-card:hover::before {
+    transform: scaleY(1);
+}
+
+.pub-left {
+    flex: 1;
+    padding-right: var(--space-lg);
+}
+
+.pub-title {
+    font-size: 1.05rem;
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    margin: 0 0 var(--space-xs) 0;
+    font-weight: 500;
+    line-height: 1.5;
+    transition: color var(--transition-fast);
+}
+
+.publication-card:hover .pub-title {
+    color: var(--color-accent);
+}
+
+.pub-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.pub-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-bg);
+    background-color: var(--color-text-muted);
+    padding: 2px 8px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+}
+
+.pub-id {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    opacity: 0.8;
+}
+
+.pub-id a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: color var(--transition-fast), opacity var(--transition-fast);
+    position: relative;
+    z-index: 2;
+    /* Ensures inline links sit above the stretched link */
+}
+
+.pub-id a:hover {
+    color: var(--color-accent);
+    opacity: 1;
+}
+
+.pub-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    color: var(--color-text-muted);
+}
+
+.pub-year {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.pub-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.4;
+    transition: all var(--transition-fast);
+}
+
+.publication-card:hover .pub-icon {
+    opacity: 1;
+    color: var(--color-accent);
+    transform: translate(2px, -2px);
+}
+
+/* 
+ * --- EXTRACURRICULAR ACTIVITIES (Card Layout) --- 
+ */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.activity-ca.grid-item {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-accent-dim);
+    overflow: hidden;
+    /* Important for containing border-radius and overlays */
+    transition: transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease, border-color var(--transition-fast) ease;
+    height: 100%;
+    position: relative;
+    /* Anchor for absolute commentary overlays */
+}
+
+.activity-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-md) var(--space-lg);
+    background-color: var(--color-bg-alt);
+    border: 1px solid var(--color-accent-dim);
+    border-radius: var(--radius-md);
+    position: relative;
+    overflow: hidden;
+    transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.activity-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--color-accent);
+    /* White/Accent stripe */
+    transform: scaleY(0);
+    transition: transform var(--transition-fast) ease-out;
+    transform-origin: top;
+}
+
+.activity-card:hover::before {
+    transform: scaleY(1);
+}
+
+.activity-card:hover {
+    border-color: var(--color-accent);
+    transform: translateX(4px);
+}
+
+.activity-card-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    gap: var(--space-md);
+}
+
+.act-info {
+    flex: 4;
+    /* Takes up 4x space */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.act-photo {
+    flex: 1;
+    /* Takes up 1x space */
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    min-height: 80px;
+    /* Ensures space even without images initially */
+    background-color: var(--color-bg);
+}
+
+.act-photo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* ensures images fit nicely without gross distortion if users use different ratios */
+    opacity: 0.8;
+    transition: opacity var(--transition-fast), transform var(--transition-slow);
+}
+
+.activity-card:hover .act-photo img {
+    opacity: 1;
+    transform: scale(1.05);
+    /* subtle zoom on hover */
+}
+
+.act-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    /* tight spacing between title and subtitle */
+}
+
+.act-title {
+    font-size: 1.1rem;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.act-subtitle {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.act-right {
+    flex-shrink: 0;
+    margin-left: var(--space-md);
+}
+
+.act-date {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    opacity: 0.8;
+}
+
+.act-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-top: var(--space-sm);
+}
+
+/* 
+ * ============================================================================
+ * THOUGHT CARDS (EXPANDABLE MICRO-BLOG)
+ * ============================================================================
+ */
+.thoughts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .thoughts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .thoughts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.thought-card.expandable {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    min-height: 380px;
+    /* Forces all cards in the grid to align */
+    max-height: 380px;
+    transition: max-height 1s cubic-bezier(0.25, 1, 0.5, 1), transform var(--transition-normal) ease, box-shadow var(--transition-normal) ease, border-color var(--transition-normal) ease;
+}
+
+.thought-card.expandable.expanded {
+    max-height: 5000px;
+    /* Allows the card to smoothly grow to show full text */
+}
+
+.thought-card.expandable:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-text-muted);
+}
+
+/* Hide full text by default */
+.thought-card.expandable .full-text {
+    display: none;
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+/* Show full text when expanded */
+.thought-card.expandable.expanded .full-text {
+    display: block;
+    opacity: 1;
+    margin-top: var(--space-xs);
+}
+
+/* Gradient fade at the bottom of unexpanded cards */
+.thought-card.expandable .expand-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    /* Taller gradient for smoother fade */
+    background: linear-gradient(to bottom, rgba(26, 26, 31, 0) 0%, rgba(26, 26, 31, 0.95) 70%, rgba(26, 26, 31, 1) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: var(--space-lg);
+    pointer-events: none;
+    /* Let clicks pass through to the card */
+}
+
+/* The 'read more' button styling */
+.thought-card.expandable .expand-label {
+    font-size: 0.85rem;
+    font-family: var(--font-primary);
+    color: var(--color-text-main);
+    background: rgba(255, 255, 255, 0.05);
+    /* very subtle pill */
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: background 0.2s ease;
+}
+
+.thought-card.expandable:hover .expand-label {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Hide the fade block when the card is expanded */
+.thought-card.expandable.expanded .expand-fade {
+    display: none;
+}
+
+/* 
+ * --- SHIMMER LOADING ANIMATION --- 
+ */
+.thought-card.is-loading .thought-title,
+.thought-card.is-loading .preview-text {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-accent-dim);
+    border-radius: 4px;
+    color: transparent !important;
+    min-height: 1.2em;
+}
+
+.thought-card.is-loading .thought-title {
+    width: 60%;
+    margin-bottom: var(--space-md);
+}
+
+.thought-card.is-loading .preview-text {
+    width: 100%;
+    height: 4.5em;
+    /* Roughly 3 lines */
+}
+
+.thought-card.is-loading .thought-title::after,
+.thought-card.is-loading .preview-text::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tunç türker - taste.</title>
+    <meta name="description" content="Personal website and intellectual showcase of Tunc Turker.">
+
+    <!-- 
+      GLOBAL FONTS
+      To change fonts across the whole site, swap these Google Fonts links.
+      Then update `--font-primary` and `--font-secondary` in styles/main.css
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+    <!-- 
+      CSS ARCHITECTURE
+      - main.css: Global variables (Colors, Fonts, Spacing) and basic layout tags (body, h1, a).
+      - components.css: Specific styles for the Hero, CV Cards, and Media Grids.
+      - animations.css: Keyframes and classes for things fading/sliding in as you scroll.
+    -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+
+    <!-- Global Logic (Scroll reveals, tab switching) -->
+    <script src="js/films-data.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+
+<body class="theme-auto">
+
+    <!-- 
+      TOP NAVIGATION BAR 
+      The 'glass-nav' class in main.css gives it the blurred background effect.
+    -->
+    <nav id="navbar" class="glass-nav">
+        <div class="nav-content">
+            <!-- Clicking the logo scrolls smoothly back to the #hero section -->
+            <a href="index.html" class="nav-logo">Özgen Tunç Türker</a>
+            <div class="nav-links">
+                <a href="cv.html">CV.</a>
+                <a href="thoughts.html">Thoughts.</a>
+                <a href="taste.html" class="active">taste.</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- 
+          =============================================
+          CURATED LISTS (Showcase)
+          =============================================
+          This uses buttons to toggle which grid is visible.
+        -->
+    <section class="landing-quote-section">
+        <div class="container" style="display: flex; justify-content: center; width: 100%;">
+            <a href="https://www.goodreads.com/quotes/797873-nobody-ever-figures-out-what-life-is-all-about-and"
+                style="text-decoration: none; transition: transform 0.3s ease;">
+                <blockquote class="custom-blockquote reveal-text">
+                    "Nobody ever figures out what life is all about, and it doesn't matter. Explore the world. Nearly
+                    everything is really interesting if you go into it deeply enough."
+                    <cite
+                        style="display: block; margin-top: 1rem; font-size: 0.9rem; font-style: normal; color: var(--color-accent); font-weight: 500;">
+                        Richard P. Feynman</cite>
+                </blockquote>
+            </a>
+        </div>
+    </section>
+    <section id="showcase" class="showcase-section fade-in-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">things i like.</h2>
+            </div>
+
+            <!-- 
+                  TAB NAVIGATION
+                  The 'data-target' here must match the 'id' of the grid below it opens.
+                -->
+            <div class="showcase-tabs">
+                <button class="tab-btn active" data-target="books">books.</button>
+                <button class="tab-btn" data-target="films">films.</button>
+                <button class="tab-btn" data-target="music">music.</button>
+                <!-- <button class="tab-btn" data-target="routes">routes.</button>
+                <button class="tab-btn" data-target="restaurants">restaurants.</button> -->
+            </div>
+
+            <div class="showcase-content">
+                <!-- 
+                      BOOKS GRID
+                      Note: id="books" matches the button data-target="books".
+                      Only the one with the 'active' class is visible when the page loads.
+                    -->
+                <div class="grid-container active" id="books">
+                    <p class="section-header"
+                        style="grid-column: 1 / -1; width: 100%; text-align: center; padding: var(--space-md) 0; line-height: 1.8;">
+                        not a bookworm. wish i was.<br>
+                        these three books changed my life.
+                    </p>
+
+                    <!-- Book 2 -->
+                    <a href="https://www.goodreads.com/book/show/17311740-stat-endi-esi" target="_blank"
+                        class="grid-item hover-shine">
+                        <div class="item-visual book-cover"
+                            style="background-image: url('https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1453975852i/17311740.jpg'); background-size: cover; background-position: center; border-radius: 8px;">
+                        </div>
+                        <div class="item-commentary">
+                            im kinda fan of him. <br> This one was an uppercut to my ego and social anxiety.
+                        </div>
+                        <div class="item-meta">
+                            <h3>Status Anxiety.</h3>
+                            <p>Alain de Botton.</p>
+                        </div>
+                    </a>
+
+                    <!-- Book 1 -->
+                    <a href="https://www.goodreads.com/book/show/19065131-one-two-three-infinity?ac=1&from_search=true&qid=yZA3mUmb6j&rank=1"
+                        target="_blank" class="grid-item hover-shine">
+                        <!-- Replace URL below with direct link to book cover image -->
+                        <div class="item-visual book-cover"
+                            style="background-image: url('https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1523806775i/39854862.jpg'); background-size: cover; background-position: center; border-radius: 8px;">
+                        </div>
+                        <div class="item-commentary">
+                            what really motivated me to do physics.
+                        </div>
+                        <div class="item-meta">
+                            <h3>One Two Three Infinity.</h3>
+                            <p>George Gamow.</p>
+                        </div>
+                    </a>
+
+
+                    <!-- Book 3 -->
+                    <a href="https://www.goodreads.com/book/show/629.Zen_and_the_Art_of_Motorcycle_Maintenance"
+                        target="_blank" class="grid-item hover-shine">
+                        <div class="item-visual book-cover"
+                            style="background-image: url('https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1353479521i/16161735.jpg'); background-size: cover; background-position: center; border-radius: 8px;">
+                        </div>
+                        <div class="item-commentary">
+                            for the ones who really see the line between sane and insane.<br><br>
+                            btw many thanks to neslihan serap şengör who introduced this book in her lecture Circuit
+                            and System Analysis.
+                        </div>
+                        <div class="item-meta">
+                            <h3>Zen and the Art of Motorcycle Maintenance.</h3>
+                            <p>Robert M. Pirsig.</p>
+                        </div>
+                    </a>
+
+
+                    <div class="section-header"
+                        style="grid-column: 1 / -1; margin-top: var(--space-xl); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-accent-dim); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                        <h3 style="font-size: 1.2rem; color: var(--color-text-muted); margin: 0;">
+                            some more recommendations.
+                        </h3>
+                        <a href="https://www.goodreads.com/user/show/134531861-tun" target="_blank"
+                            style="font-size: 0.85rem; color: var(--color-text-main); text-decoration: none; border: 1px solid var(--color-text-muted); padding: 4px 12px; border-radius: 20px; transition: all 0.2s ease;"
+                            onmouseover="this.style.backgroundColor='var(--color-text-main)'; this.style.color='var(--color-bg)';"
+                            onmouseout="this.style.backgroundColor='transparent'; this.style.color='var(--color-text-main)';">
+                            see more on goodreads ↗
+                        </a>
+                    </div>
+
+                    <a href="https://www.goodreads.com/book/show/25236232-le-ma-tre-ignorant" target="_blank"
+                        class="grid-item hover-shine">
+                        <div class="item-visual book-cover"
+                            style="background-image: url('https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1427558942i/25236232.jpg'); background-size: cover; background-position: center; border-radius: 8px;">
+                        </div>
+                        <div class="item-commentary">
+                            <h6>i would consider it as a reference book for who thinks about teaching/learning.</h6>
+                        </div>
+                        <div class="item-meta">
+                            <h3>Le Maître ignorant.</h3>
+                            <p>Jacques Rancière.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.goodreads.com/book/show/6105037-the-philosopher-and-the-wolf" target="_blank"
+                        class="grid-item hover-shine">
+                        <div class="item-visual book-cover"
+                            style="background-image: url('https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1327429402i/6105037.jpg'); background-size: cover; background-position: center; border-radius: 8px;">
+                        </div>
+                        <div class="item-commentary">
+                            <h6></h6>
+                        </div>
+                        <div class="item-meta">
+                            <h3>The Philosopher and the Wolf.</h3>
+                            <p>Mark Rowlands.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.goodreads.com/book/show/18742.The_Melancholy_Death_of_Oyster_Boy_Other_Stories"
+                        target="_blank" class="grid-item hover-shine">
+                        <div class="item-visual book-cover"
+                            style="background-image: url('https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1353604737i/18742.jpg'); background-size: cover; background-position: center; border-radius: 8px;">
+                        </div>
+                        <div class="item-commentary">
+                            <h6></h6>
+                        </div>
+                        <div class="item-meta">
+                            <h3>The Melancholy Death of Oyster Boy & Other Stories.</h3>
+                            <p>Tim Burton.</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.goodreads.com/book/show/22328555-to-explain-the-world" target="_blank"
+                        class="grid-item hover-shine">
+                        <div class="item-visual book-cover"
+                            style="background-image: url('https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1410766672i/22328555.jpg'); background-size: cover; background-position: center; border-radius: 8px;">
+                        </div>
+                        <div class="item-commentary">
+                            <h6></h6>
+                        </div>
+                        <div class="item-meta">
+                            <h3>To Explain the World.</h3>
+                            <p>Steven Weinberg.</p>
+                        </div>
+                    </a>
+                    <a href="https://www.goodreads.com/book/show/36236123-survivor" target="_blank"
+                        class="grid-item hover-shine">
+                        <div class="item-visual book-cover"
+                            style="background-image: url('https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1523531504i/36236123.jpg'); background-size: cover; background-position: center; border-radius: 8px;">
+                        </div>
+                        <div class="item-commentary">
+                            <h6>Chuck Palahniuk is streching your imagination, do not resist.</h6>
+                        </div>
+                        <div class="item-meta">
+                            <h3>Survivor.</h3>
+                            <p>Chuck Palahniuk.</p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <!-- 
+                      FILMS GRID 
+                      (Hidden by default because it lacks the 'active' class)
+                    -->
+
+            <div class="grid-container" id="films">
+                <!-- Intro Text Card -->
+                <p class="section-header"
+                    style="grid-column: 1 / -1; width: 100%; text-align: center; padding: var(--space-md) 0; line-height: 1.8;">
+                    okay. this is not cinephilia.<br>
+                    it’s about finding something worth spending 2–3 hours on.<br>
+                    below is my kind of top 3. it’s hard, right?
+                </p>
+
+                <!-- Film 1 -->
+                <a href="https://letterboxd.com/film/big-fish/" target="_blank" class="grid-item hover-shine">
+                    <!-- Replace URL below with direct link to movie poster image -->
+                    <div class="item-visual film-still"
+                        style="background-image: url('https://a.ltrbxd.com/resized/sm/upload/w2/v9/2v/lv/6DRFdlNZpAaEt7eejsbAlJGgaM7-0-2000-0-3000-crop.jpg?v=89bfbcf64e'); background-size: cover; background-position: center; border-radius: 8px;">
+                    </div>
+                    <div class="item-meta">
+                        <h3>Big Fish.</h3>
+                        <p>Tim Burton.</p>
+                    </div>
+                </a>
+
+                <!-- Film 2 -->
+                <a href="https://letterboxd.com/film/oldboy/" target="_blank" class="grid-item hover-shine">
+                    <div class="item-visual film-still"
+                        style="background-image: url('https://a.ltrbxd.com/resized/film-poster/5/1/4/5/4/51454-oldboy-0-2000-0-3000-crop.jpg?v=294dbcadef'); background-size: cover; background-position: center; border-radius: 8px;">
+                    </div>
+                    <div class="item-meta">
+                        <h3>Oldboy.</h3>
+                        <p>Park Chan-wook.</p>
+                    </div>
+                </a>
+
+                <!-- Film 3 -->
+                <a href="https://letterboxd.com/film/the-bothersome-man/" target="_blank" class="grid-item hover-shine">
+                    <div class="item-visual film-still"
+                        style="background-image: url('https://a.ltrbxd.com/resized/film-poster/4/3/9/8/2/43982-the-bothersome-man-0-2000-0-3000-crop.jpg?v=4788656661'); background-size: cover; background-position: center; border-radius: 8px;">
+                    </div>
+                    <div class="item-meta">
+                        <h3>The Bothersome Man.</h3>
+                        <p>Jens Lien.</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Albums Grid -->
+            <!-- Music Grid (Apple Music) -->
+            <div class="grid-container" id="music" style="grid-template-columns: 1fr;">
+                <p class="section-header"
+                    style="width: 100%; text-align: center; padding: var(--space-md) 0; line-height: 1.8;">
+                    music always keeps me company.
+                    everywhere I go, I have music in my ears. I have memories with songs.
+                    <br>
+                    I love to classify songs with the feelings.
+                    below, there are some lists made with no professional consideration but just pure feelings.
+                    and they are also changing.
+                    <br><br>
+                    they say that mozart once said
+                    <span class="custom-tooltip">
+                        "Ich möchte alles haben was gut, ächt und schöne ist!"
+                        <span class="custom-tooltip-text">I would like to have everything that is good, genuine,
+                            and beautiful!</span>
+                    </span>
+                    <br><span style="color: var(--color-text-muted); font-size: 0.95rem;">I understand him
+                        sometimes.
+                        with a translator. yes. sometimes.</span>
+                </p>
+
+                <div class="music-grid">
+                    <div class="playlist-category-wrapper">
+                        <div class="playlist-category">Master pieces.</div>
+                        <p class="playlist-category-desc">okay lets start with some things that we all know are good.
+                            below there are 3 playlists that would be challenging to say "i didn't like".</p>
+                    </div>
+                    <div class="playlist-row">
+                        <!-- Playlist 1 -->
+                        <div class="playlist-card">
+                            <div class="playlist-embed-wrapper">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                                    src="https://embed.music.apple.com/tr/playlist/best-of-all-time/pl.u-KVrZWTzz0MjP"></iframe>
+                            </div>
+                            <div class="playlist-commentary">
+                                <div class="commentary-header">
+                                    <h4>best of all times.</h4>
+                                </div>
+                                <p>these sounds that will never get old. im actively updating it.</p>
+                            </div>
+                        </div>
+
+                        <div class="playlist-card">
+                            <div class="playlist-embed-wrapper">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                                    src="https://embed.music.apple.com/tr/playlist/epic/pl.u-2j3yCVV2BXv"></iframe>
+                            </div>
+                            <div class="playlist-commentary">
+                                <div class="commentary-header">
+                                    <h4>epic.</h4>
+                                </div>
+                                <p>these are classics. they are equivalent of an expensive mont blanc fountain pen.</p>
+                            </div>
+                        </div>
+
+                        <div class="playlist-card">
+                            <div class="playlist-embed-wrapper">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                                    src="https://embed.music.apple.com/tr/playlist/muazzam/pl.u-K1jWCzz0MjP"></iframe>
+                            </div>
+                            <div class="playlist-commentary">
+                                <div class="commentary-header">
+                                    <h4>muazzam.</h4>
+                                </div>
+                                <p>muazzam means perfect in turkish.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="playlist-category-wrapper">
+                        <div class="playlist-category">workout.</div>
+                        <p class="playlist-category-desc">
+                            I have self motivation playlists as well. </a>
+                        </p>
+                    </div>
+                    <div class="playlist-row">
+                        <div class="playlist-card">
+                            <div class="playlist-embed-wrapper">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                                    src="https://embed.music.apple.com/tr/playlist/fuel/pl.u-KjEPCzz0MjP"></iframe>
+                            </div>
+                            <div class="playlist-commentary">
+                                <div class="commentary-header">
+                                    <h4>fuel.</h4>
+                                </div>
+                                <p>one of my most used playlists. again, very different genres can be found. but the
+                                    feeling is the same. </p>
+                            </div>
+                        </div>
+
+                        <div class="playlist-card">
+                            <div class="playlist-embed-wrapper">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                                    src="https://embed.music.apple.com/tr/playlist/canavar/pl.u-k81DFXXDqYK"></iframe>
+                            </div>
+                            <div class="playlist-commentary">
+                                <div class="commentary-header">
+                                    <h4>canavar.</h4>
+                                </div>
+                                <p>canavar means monster in turkish.</p>
+                            </div>
+                        </div>
+
+                        <div class="playlist-card">
+                            <div class="playlist-embed-wrapper">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                                    src="https://embed.music.apple.com/tr/playlist/dolma-kalem/pl.u-kNZluXXDqYK"></iframe>
+                            </div>
+                            <div class="playlist-commentary">
+                                <div class="commentary-header">
+                                    <h4>dolma kalem.</h4>
+                                </div>
+                                <p>fountain pen. not only for workout. its for when something needs to be done.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="playlist-category-wrapper">
+                        <div class="playlist-category">be happy.</div>
+                        <p class="playlist-category-desc">
+                            these ones are to cheer me up. </a>
+                        </p>
+                    </div>
+                    <div class="playlist-row">
+                        <div class="playlist-card">
+                            <div class="playlist-embed-wrapper">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                                    src="https://embed.music.apple.com/tr/playlist/la-la-la-la-la-la/pl.u-jlkpIbbBYAN"></iframe>
+                            </div>
+                            <div class="playlist-commentary">
+                                <div class="commentary-header">
+                                    <h4>la la la.</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="playlist-card">
+                            <div class="playlist-embed-wrapper">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                                    src="https://embed.music.apple.com/tr/playlist/make-them-happy/pl.u-8aaraSNNJRM1"></iframe>
+                            </div>
+                            <div class="playlist-commentary">
+                                <div class="commentary-header">
+                                    <h4>make them happy.</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="playlist-card">
+                            <div class="playlist-embed-wrapper">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                                    src="https://embed.music.apple.com/tr/playlist/lunapark/pl.u-GpKgTbb2qGX"></iframe>
+                            </div>
+                            <div class="playlist-commentary">
+                                <div class="commentary-header">
+                                    <h4>lunapark.</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="playlist-category-wrapper">
+                        <div class="playlist-category">🇧🇷 Brasil.</div>
+                        <p class="playlist-category-desc">
+                            it is completely another level of music culture. i cannot explain in a couple of phrases.
+                            soon i will write it here: <a href="thoughts/brasil.html">brazilian music culture.</a>
+                        </p>
+                    </div>
+                    <div class="playlist-row">
+                        <div class="playlist-card">
+                            <div class="playlist-embed-wrapper">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                                    src="https://embed.music.apple.com/tr/playlist/%C5%9Fiki-%C5%9Fiki/pl.u-gxxZ0TWWlVAz"></iframe>
+                            </div>
+                            <div class="playlist-commentary">
+                                <div class="commentary-header">
+                                    <h4>samba.</h4>
+                                </div>
+                                <p>i literally try to save all the rhtymes i heard in the street. sometimes by recording
+                                    audio, sometimes by writing down the lyrics I understand, sometimes by asking
+                                    people.
+                                    and obviously some of them are not samba. but i love them as they are samba. ( there
+                                    will always be
+                                    someone saying no its pagode.)</p>
+                            </div>
+                        </div>
+
+                        <div class="playlist-card">
+                            <div class="playlist-embed-wrapper">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                                    src="https://embed.music.apple.com/tr/playlist/pl.u-kvvWluXXDqYK"></iframe>
+                            </div>
+                            <div class="playlist-commentary">
+                                <div class="commentary-header">
+                                    <h4>rock.</h4>
+                                </div>
+                                <p>This is brazilian rock or perhaps MPB. idk. The distinction is not that clear. </p>
+                            </div>
+                        </div>
+
+                        <div class="playlist-card">
+                            <div class="playlist-embed-wrapper">
+                                <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                                    src="https://embed.music.apple.com/tr/playlist/brasileiraaa/pl.u-kvv0aCXXDqYK"></iframe>
+                            </div>
+                            <div class="playlist-commentary">
+                                <div class="commentary-header">
+                                    <h4>brasileiraaa.</h4>
+                                </div>
+                                <p>so this is complete mixture of good quality sounds. there are psychedelics, pop, rap,
+                                    rock, electronics. its a mess of a mixture. but delicious!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Routes Grid 
+            <div class="grid-container" id="routes">
+                <p class="section-header"
+                    style="grid-column: 1 / -1; width: 100%; text-align: center; padding: var(--space-md) 0; line-height: 1.8;">
+                    I was born an raised in a big city. even though I love trailing never been a trekking person.so
+                    this place is going to be city walking routes. at some point I will put some walking routes in
+                    some cities I lived (Istanbul, Paris, Vitória).
+                </p>
+                <a href="#" class="grid-item hover-shine layout-landscape">
+                    <div class="item-visual map-visual"></div>
+                    <div class="item-meta">
+                        <h3>Scenic Route 1</h3>
+                        <p>Location / Distance</p>
+                    </div>
+                </a>
+            </div>
+
+             Restaurants Grid 
+            <div class="grid-container" id="restaurants">
+                <a href="#" class="grid-item hover-shine layout-landscape">
+                    <div class="item-visual restaurant-photo"></div>
+                    <div class="item-meta">
+                        <h3>Exceptional Dining</h3>
+                        <p>Cuisine / Neighborhood</p>
+                    </div>
+                </a>
+            </div>
+            -->
+        </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 Tunç. god bless antigravity.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
